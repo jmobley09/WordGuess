@@ -14,7 +14,7 @@ document.onkeyup = function (e) {
 }
 
 // Creates current word from list and populates to page
-var SongList = ['bandito', 'car radio', 'blurry face', 'chlorine', 'trees'];
+var SongList = ['bandito', 'carradio', 'blurryface', 'chlorine', 'trees'];
 var rand = SongList[Math.floor(Math.random() * SongList.length)];
 window.onload = function () {
     what();
@@ -24,8 +24,9 @@ window.onload = function () {
         // Replaces the characters of the current words with '-' 
         var newCurrent = rand.split("");
         for (i = 0; i < newCurrent.length; i++) {
-            
-            console.log(newCurrent);
+            newCurrent[i] = '-';
+            document.getElementById('CurrentWord').innerHTML = newCurrent;
         }
     }
 }
+
