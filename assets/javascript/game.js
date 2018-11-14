@@ -14,14 +14,18 @@ document.onkeyup = function (e) {
 }
 
 // Creates current word from list and populates to page
-var SongList = ['Bandito', 'Car Radio', 'Blurry Face', 'Chlorine', 'Trees'];
+var SongList = ['bandito', 'car radio', 'blurry face', 'chlorine', 'trees'];
 var rand = SongList[Math.floor(Math.random() * SongList.length)];
-window.onload = function() {
+window.onload = function () {
     what();
-    function what(){
+    function what() {
         document.getElementById('CurrentWord').innerHTML = rand;
+
+        // Replaces the characters of the current words with '-' 
+        var newCurrent = rand.split("");
+        for (i = 0; i < newCurrent.length; i++) {
+            
+            console.log(newCurrent);
+        }
     }
 }
-
-// Replaces the characters of the current words with '-' 
-var randString = rand.toString();
