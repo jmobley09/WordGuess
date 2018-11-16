@@ -17,21 +17,24 @@ var Game = {
         }
         // Replaces the characters of the current words with '_'
         function Current() {
+            var NewCurrent = rand.split("");
             for (var i = 0; i < RandArray.length; i++) {
-                RandArray[i] = '_';
-                document.getElementById('CurrentWord').innerHTML = RandArray;
+                NewCurrent[i] = '_';
+                document.getElementById('CurrentWord').innerHTML = NewCurrent;
             }
-            console.log(RandArray);
+            // if randarray (array of letters in word) is not equal to -1 (means its present)
+            // replace the letter in Current Word
+            function Check() {
+                var Replace = RandArray.indexOf(letter);
+                for (var i = 0; i < RandArray.length; i++) {
+                    if (letter === RandArray[i]) {
+                        NewCurrent[Replace] = letter;
+                    }
+                    document.getElementById('CurrentWord').innerHTML = NewCurrent;
+                }
+            }
+            Check();
         }
         Current();
-        // if randarray (array of letters in word) is not equal to -1 (means its present)
-        // replace the letter in Current Word
-        var Replace = RandArray[RandArray.indexOf(letter)];
-        console.log(RandArray.indexOf(letter));
-        if (RandArray.indexOf(letter) !== -1) {
-            for (var i = 0; i < RandArray.length; i++) {
-                
-            }
-        }
     }
 }
