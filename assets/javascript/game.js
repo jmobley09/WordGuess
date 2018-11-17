@@ -25,8 +25,9 @@ var Game = {
             Game.NewCurrent[i] = '_';
         }
     },
+
+    // Checks for a match between the key press and current word that is hidden, and changes current word for all letters that match
     Check: function (e) {
-        // Checks for a match between the key press and current word that is hidden, and changes current word for all letters that match
         for (var i = 0; i < RandArray.length; i++) {
             var letter = e.key.toLocaleLowerCase();
             if (letter === RandArray[i]) {
@@ -35,24 +36,28 @@ var Game = {
             }
         }
     },
-    SubtractGuess: function() {
+    
+    // If letter pressed is not in the current word it subtracts from the guesses remaining count
+    SubtractGuess: function(e) {
         var letter = e.key.toLocaleLowerCase();
         if (letter !== RandArray) {
-            console.log(Game.letter);
+            Game.Guesses = Game.Guesses - 1;
+            document.getElementById('Remaining').innerHTML = Game.Guesses;
         }
     }
 }
+
 Game.Current();
+
 // Calls the function to store the Key strokes into Guessed Letters Section
+// Checks if the letter is in current word and replaces 
+// If it is not in the current word it subtracts one from the guesses column
 document.onkeyup = function (e) {
     Game.KeyPress(e);
     Game.Check(e);
+    Game.SubtractGuess(e);
 }
-
-// Calls Check Function to verifiy if key is present in word
-// document.onkeypress = function (e) {
-    
-// }
+  
 // Loads the Underscores for the Current Word section of the screen
 window.onload = function () {
     document.getElementById('CurrentWord').innerHTML = Game.NewCurrent;
