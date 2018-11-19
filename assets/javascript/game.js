@@ -44,6 +44,9 @@ var Game = {
             Game.Guesses = Game.Guesses - 1;
             document.getElementById('Remaining').innerHTML = Game.Guesses;
         }
+        if (Game.Guesses == 0) {
+            document.getElementById('CurrentWord').innerHTML = "YOU LOSE!";
+        }
     }
 }
 

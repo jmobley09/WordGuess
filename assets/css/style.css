@@ -1,3 +1,14 @@
 .jumbotron {
     text-align: center;
+    opacity: 0.5;
+}
+body {
+    background-image: url("../images/background.jpg");
+}
+.game {
+    text-align: center;
+    color: darksalmon;
+}
+.row {
+    padding: 1%;
 }
