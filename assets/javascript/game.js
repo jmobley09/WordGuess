@@ -1,5 +1,5 @@
 var storedLetters = [];
-var SongList = ['bandito', 'carradio', 'blurryface', 'chlorine', 'trees'];
+var SongList = ['heavydirtysoul', 'carradio', 'stressedout', 'trees', 'migraine', 'fairlylocal', 'messageman'];
 var rand = SongList[Math.floor(Math.random() * SongList.length)];
 RandArray = rand.split("");
 
@@ -36,9 +36,9 @@ var Game = {
             }
         }
     },
-    
+
     // If letter pressed is not in the current word it subtracts from the guesses remaining count
-    SubtractGuess: function(e) {
+    SubtractGuess: function (e) {
         var letter = e.key.toLocaleLowerCase();
         if (letter !== RandArray) {
             Game.Guesses = Game.Guesses - 1;
@@ -46,6 +46,10 @@ var Game = {
         }
         if (Game.Guesses == 0) {
             document.getElementById('CurrentWord').innerHTML = "YOU LOSE!";
+        }
+        if (Game.Guesses != 0 && Game.NewCurrent.includes('_') == false) {
+            var song = document.getElementById(rand);
+            song.play();
         }
     }
 }
@@ -60,7 +64,7 @@ document.onkeyup = function (e) {
     Game.Check(e);
     Game.SubtractGuess(e);
 }
-  
+
 // Loads the Underscores for the Current Word section of the screen
 window.onload = function () {
     document.getElementById('CurrentWord').innerHTML = Game.NewCurrent;

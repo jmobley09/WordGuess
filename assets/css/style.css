@@ -1,6 +1,7 @@
 .jumbotron {
     text-align: center;
     opacity: 0.5;
+    color: black;
 }
 body {
     background-image: url("../images/background.jpg");
@@ -11,4 +12,8 @@ body {
 }
 .row {
     padding: 1%;
+}
+.btn {
+    background-color: lightblue;
+    color: black;
 }
