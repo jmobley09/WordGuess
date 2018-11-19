@@ -40,13 +40,15 @@ var Game = {
     // If letter pressed is not in the current word it subtracts from the guesses remaining count
     SubtractGuess: function (e) {
         var letter = e.key.toLocaleLowerCase();
-        if (letter !== RandArray) {
+        if (letter !== RandArray && Game.Guesses != 0) {
             Game.Guesses = Game.Guesses - 1;
             document.getElementById('Remaining').innerHTML = Game.Guesses;
         }
+        // Changes current word to saying if run out of guesses
         if (Game.Guesses == 0) {
-            document.getElementById('CurrentWord').innerHTML = "YOU LOSE!";
+            document.getElementById('CurrentWord').innerHTML = "YOU LOSE! Click RESET to try again!";
         }
+        //plays song that is hidden when it is correctly guessed
         if (Game.Guesses != 0 && Game.NewCurrent.includes('_') == false) {
             var song = document.getElementById(rand);
             song.play();
