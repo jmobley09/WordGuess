@@ -15,7 +15,7 @@ var Game = {
         var options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
         if (options.indexOf(letter) !== -1) {
             storedLetters.push(letter.toString());
-            document.getElementById('GuessLetters').innerHTML = storedLetters;
+            document.getElementById('GuessLetters').innerHTML = storedLetters.join(" ");
         }
     },
 
@@ -32,7 +32,7 @@ var Game = {
             var letter = e.key.toLocaleLowerCase();
             if (letter === RandArray[i]) {
                 Game.NewCurrent[i] = letter;
-                document.getElementById('CurrentWord').innerHTML = Game.NewCurrent;
+                document.getElementById('CurrentWord').innerHTML = Game.NewCurrent.join(" ");
             }
         }
     },
